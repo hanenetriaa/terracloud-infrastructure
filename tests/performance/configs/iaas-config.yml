@@ -1,0 +1,113 @@
+# IaaS Configuration for TerraCloud Performance Testing
+# Azure Virtual Machines Infrastructure
+
+# Target URL - Set this via environment variable or replace with actual URL
+# Example: IAAS_URL=http://iaas-vm-lb.eastus.cloudapp.azure.com
+target: "{{ $processEnvironment.IAAS_URL }}"
+
+# Infrastructure details (for documentation)
+variables:
+  infrastructure_type: "IaaS"
+  platform: "Azure Virtual Machines"
+  deployment_model: "IaaS"
+
+  # VM Configuration (update with actual values)
+  vm_size: "Standard_B2s"
+  vm_count: 2
+  os: "Ubuntu 20.04 LTS"
+  load_balancer: "Azure Load Balancer"
+
+  # Expected characteristics
+  scaling_type: "Manual / VM Scale Sets"
+  management_overhead: "High"
+  flexibility: "Maximum"
+
+# HTTP defaults for IaaS testing
+http:
+  timeout: 20                      # Request timeout in seconds
+  maxSockets: 50                   # Maximum concurrent connections
+  extendedMetrics: true            # Collect detailed metrics
+
+# Performance expectations for IaaS
+ensure:
+  # These will be overridden by scenario-specific configs
+  maxErrorRate: 2
+  p95: 1500
+  p99: 3000
+
+# Headers to include in all requests
+headers:
+  User-Agent: "Artillery/TerraCloud-IaaS-Test"
+  X-Test-Type: "IaaS-Performance"
+  X-Infrastructure: "Azure-VM"
+
+# TLS configuration (if using HTTPS)
+tls:
+  rejectUnauthorized: false        # Set to true in production
+
+# Proxy configuration (if needed)
+# proxy:
+#   url: "http://proxy-server:port"
+
+# Custom metrics and tracking
+plugins:
+  metrics-by-endpoint:
+    stripQueryString: true
+    ignoreUnknownEndpoints: false
+
+  # Publish metrics to external service (optional)
+  # publish-metrics:
+  #   - type: "statsd"
+  #     host: "monitoring-server"
+  #     port: 8125
+  #     prefix: "terracloud.iaas"
+
+# Test data specific to IaaS testing
+payload:
+  path: "./configs/test-data.csv"
+  fields:
+    - "userId"
+    - "action"
+  skipHeader: true
+  delimiter: ","
+
+# Before/After hooks for IaaS testing
+before:
+  flow:
+    # Pre-test validation
+    - log: "Starting IaaS Performance Test"
+    - log: "Target: {{ $processEnvironment.IAAS_URL }}"
+    - get:
+        url: "/api/health"
+        capture:
+          - json: "$.status"
+            as: "healthStatus"
+
+after:
+  flow:
+    - log: "IaaS Performance Test Completed"
+
+# IaaS-specific test scenarios
+scenarios:
+  # Basic health check for IaaS
+  - name: "IaaS Health Verification"
+    weight: 100
+    flow:
+      - get:
+          url: "/api/health"
+          expect:
+            - statusCode: 200
+          capture:
+            - json: "$.timestamp"
+              as: "serverTime"
+            - json: "$.status"
+              as: "serverStatus"
+      - log: "IaaS Server Status: {{ serverStatus }}"
+
+# Notes on IaaS characteristics for this test:
+# - Manual scaling requires pre-configuration
+# - Direct control over VM resources
+# - Network latency may vary based on load balancer configuration
+# - OS-level metrics available through Azure Monitor
+# - Consider VM startup time for scaling tests
+# - Cost accumulates based on VM runtime regardless of load
