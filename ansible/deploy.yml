@@ -1,0 +1,48 @@
+---
+- name: Déployer l'application Docker sur VM Azure
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: Installer les dépendances Docker
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Ajouter le dépôt Docker officiel
+      shell: |
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+      when: ansible_os_family == "Debian"
+
+    - name: Installer Docker
+      apt:
+        name: docker-ce
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Lancer et activer Docker
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Télécharger ton image Docker depuis Docker Hub
+      docker_image:
+        name: stricken008/terracloud
+        tag: latest
+        source: pull
+
+    - name: Lancer le conteneur de ton app
+      docker_container:
+        name: terracloud-app
+        image: stricken008/terracloud:latest
+        state: started
+        restart_policy: always
+        published_ports:
+          - "80:80"
