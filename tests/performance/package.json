@@ -1,0 +1,43 @@
+{
+  "name": "terracloud-performance-testing",
+  "version": "1.0.0",
+  "description": "Performance testing suite for TerraCloud IaaS vs PaaS comparison",
+  "main": "processors/custom-functions.js",
+  "scripts": {
+    "test:iaas:normal": "artillery run -e iaas scenarios/normal-load.yml --output results/iaas-normal-$(date +%Y%m%d-%H%M%S).json",
+    "test:iaas:stress": "artillery run -e iaas scenarios/stress-test.yml --output results/iaas-stress-$(date +%Y%m%d-%H%M%S).json",
+    "test:iaas:spike": "artillery run -e iaas scenarios/spike-test.yml --output results/iaas-spike-$(date +%Y%m%d-%H%M%S).json",
+    "test:paas:normal": "artillery run -e paas scenarios/normal-load.yml --output results/paas-normal-$(date +%Y%m%d-%H%M%S).json",
+    "test:paas:stress": "artillery run -e paas scenarios/stress-test.yml --output results/paas-stress-$(date +%Y%m%d-%H%M%S).json",
+    "test:paas:spike": "artillery run -e paas scenarios/spike-test.yml --output results/paas-spike-$(date +%Y%m%d-%H%M%S).json",
+    "validate": "artillery run --validate scenarios/normal-load.yml && artillery run --validate scenarios/stress-test.yml && artillery run --validate scenarios/spike-test.yml",
+    "install:artillery": "npm install -g artillery@latest",
+    "version:check": "artillery --version"
+  },
+  "keywords": [
+    "performance",
+    "testing",
+    "artillery",
+    "azure",
+    "iaas",
+    "paas",
+    "load-testing",
+    "stress-testing"
+  ],
+  "author": "Syrine Ladhari",
+  "license": "ISC",
+  "devDependencies": {
+    "artillery": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/terracloud-infrastructure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/terracloud-infrastructure/issues"
+  }
+}
