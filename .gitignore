@@ -35,3 +35,14 @@ venv/
 # Logs
 *.log
 logs/
+# Node.js
+node_modules/
+package-lock.json
+.npm/
+npm-debug.log*
+
+# Test results
+results/
+metrics/
+archives/
+*.json.html
