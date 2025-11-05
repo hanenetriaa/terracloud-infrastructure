@@ -1,0 +1,119 @@
+# PaaS Configuration for TerraCloud Performance Testing
+# Azure App Service (Web Apps) Infrastructure
+
+# Target URL - Set this via environment variable or replace with actual URL
+# Example: PAAS_URL=https://terracloud-paas.azurewebsites.net
+target: "{{ $processEnvironment.PAAS_URL }}"
+
+# Infrastructure details (for documentation)
+variables:
+  infrastructure_type: "PaaS"
+  platform: "Azure App Service"
+  deployment_model: "PaaS"
+
+  # App Service Configuration (update with actual values)
+  service_plan: "Standard S1"  # or Premium P1V2, etc.
+  app_count: 1                 # Can scale out to multiple instances
+  scaling_mode: "Auto-scale"
+  runtime: "Node.js / Python / .NET"  # Update based on your app
+
+  # Expected characteristics
+  scaling_type: "Automatic"
+  management_overhead: "Low"
+  flexibility: "Limited but Managed"
+
+# HTTP defaults for PaaS testing
+http:
+  timeout: 20                      # Request timeout in seconds
+  maxSockets: 50                   # Maximum concurrent connections
+  extendedMetrics: true            # Collect detailed metrics
+
+# Performance expectations for PaaS
+ensure:
+  # These will be overridden by scenario-specific configs
+  maxErrorRate: 2
+  p95: 1500
+  p99: 3000
+
+# Headers to include in all requests
+headers:
+  User-Agent: "Artillery/TerraCloud-PaaS-Test"
+  X-Test-Type: "PaaS-Performance"
+  X-Infrastructure: "Azure-AppService"
+
+# TLS configuration (Azure App Service uses HTTPS by default)
+tls:
+  rejectUnauthorized: true         # Azure certificates are valid
+
+# Custom metrics and tracking
+plugins:
+  metrics-by-endpoint:
+    stripQueryString: true
+    ignoreUnknownEndpoints: false
+
+  # Publish metrics to external service (optional)
+  # publish-metrics:
+  #   - type: "statsd"
+  #     host: "monitoring-server"
+  #     port: 8125
+  #     prefix: "terracloud.paas"
+
+# Test data specific to PaaS testing
+payload:
+  path: "./configs/test-data.csv"
+  fields:
+    - "userId"
+    - "action"
+  skipHeader: true
+  delimiter: ","
+
+# Before/After hooks for PaaS testing
+before:
+  flow:
+    # Pre-test validation
+    - log: "Starting PaaS Performance Test"
+    - log: "Target: {{ $processEnvironment.PAAS_URL }}"
+    - get:
+        url: "/api/health"
+        capture:
+          - json: "$.status"
+            as: "healthStatus"
+
+after:
+  flow:
+    - log: "PaaS Performance Test Completed"
+
+# PaaS-specific test scenarios
+scenarios:
+  # Basic health check for PaaS
+  - name: "PaaS Health Verification"
+    weight: 100
+    flow:
+      - get:
+          url: "/api/health"
+          expect:
+            - statusCode: 200
+          capture:
+            - json: "$.timestamp"
+              as: "serverTime"
+            - json: "$.status"
+              as: "serverStatus"
+      - log: "PaaS Server Status: {{ serverStatus }}"
+
+# Notes on PaaS characteristics for this test:
+# - Automatic scaling based on rules (CPU, Memory, HTTP queue)
+# - Managed infrastructure and OS updates
+# - Built-in load balancing across instances
+# - Cold start may occur if app was idle
+# - Azure Application Insights integration available
+# - Cost based on service plan tier, not actual usage
+# - Scaling rules may take 2-5 minutes to trigger
+# - Consider warm-up period for auto-scaling tests
+
+# Auto-scaling considerations:
+# - Scale-out triggers: CPU > 70% for 5 minutes
+# - Scale-in triggers: CPU < 30% for 10 minutes
+# - Min instances: 1
+# - Max instances: 5 (or configured limit)
+# - Cool-down period: 5 minutes between scale operations
+ 

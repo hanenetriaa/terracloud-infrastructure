@@ -1,0 +1,7 @@
+# Ignore all test reports
+*.json
+*.html
+*.xml
+
+# But keep the directory
+!.gitignore
