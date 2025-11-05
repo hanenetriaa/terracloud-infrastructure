@@ -39,7 +39,7 @@ config:
 
   # Payload configuration
   payload:
-    path: "./configs/test-data.csv"
+    path: "../configs/test-data.csv"
     fields:
       - "userId"
       - "action"
@@ -97,74 +97,64 @@ config:
 scenarios:
   # Scenario 1: Heavy homepage traffic
   - name: "Homepage Heavy Load"
-    weight: 35
+    weight: 100
     flow:
       - get:
           url: "/"
-          capture:
-            - json: "$.status"
-              as: "homeStatus"
           expect:
             - statusCode: [200, 500, 502, 503, 504]  # Accept server errors during stress
       - think: 1  # Shorter think time for more aggressive load
 
-  # Scenario 2: Rapid API calls
-  - name: "API Stress Test"
-    weight: 30
-    flow:
-      - loop:
-          - get:
-              url: "/api/health"
-              expect:
-                - statusCode: [200, 500, 502, 503, 504]
-          - get:
-              url: "/api/status"
-              expect:
-                - statusCode: [200, 404, 500, 502, 503, 504]
-        count: 3
-      - think: 0.5
+  # NOTE: Les scénarios suivants sont commentés car ils nécessitent
+  # que l'application Laravel soit configurée avec ces endpoints.
+  # Décommentez-les une fois que votre application est déployée et configurée.
 
-  # Scenario 3: Resource intensive operations
-  - name: "Resource Intensive Operations"
-    weight: 20
-    flow:
-      - get:
-          url: "/"
-          expect:
-            - statusCode: [200, 500, 502, 503, 504]
-      - get:
-          url: "/assets/css/style.css"
-          expect:
-            - statusCode: [200, 404, 500, 502, 503, 504]
-      - get:
-          url: "/assets/js/app.js"
-          expect:
-            - statusCode: [200, 404, 500, 502, 503, 504]
-      - get:
-          url: "/assets/images/logo.png"
-          expect:
-            - statusCode: [200, 404, 500, 502, 503, 504]
-      - think: 0.5
+  # # Scenario 2: Rapid API calls
+  # - name: "API Stress Test"
+  #   weight: 30
+  #   flow:
+  #     - loop:
+  #         - get:
+  #             url: "/api/health"
+  #             expect:
+  #               - statusCode: [200, 500, 502, 503, 504]
+  #         - get:
+  #             url: "/api/status"
+  #             expect:
+  #               - statusCode: [200, 404, 500, 502, 503, 504]
+  #       count: 3
+  #     - think: 0.5
 
-  # Scenario 4: High POST request volume
-  - name: "Heavy POST Requests"
-    weight: 15
-    flow:
-      - loop:
-          - post:
-              url: "/api/data"
-              json:
-                userId: "{{ $randomString() }}"
-                timestamp: "{{ $timestamp() }}"
-                action: "stress-test"
-                payload: "{{ $randomString() }}"
-                metadata:
-                  testType: "stress"
-                  iteration: "{{ $randomNumber(1, 1000) }}"
-              expect:
-                - statusCode: [200, 201, 400, 500, 502, 503, 504]
-          - think: 0.3
-        count: 2
+  # # Scenario 3: Resource intensive operations
+  # - name: "Resource Intensive Operations"
+  #   weight: 20
+  #   flow:
+  #     - get:
+  #         url: "/"
+  #         expect:
+  #           - statusCode: [200, 500, 502, 503, 504]
+  #     - get:
+  #         url: "/css/app.css"
+  #         expect:
+  #           - statusCode: [200, 404, 500, 502, 503, 504]
+  #     - get:
+  #         url: "/js/app.js"
+  #         expect:
+  #           - statusCode: [200, 404, 500, 502, 503, 504]
+  #     - think: 0.5
 
-# Error handling and logging
-processor: "./processors/custom-functions.js"
+  # # Scenario 4: High POST request volume
+  # - name: "Heavy POST Requests"
+  #   weight: 15
+  #   flow:
+  #     - loop:
+  #         - post:
+  #             url: "/api/data"
+  #             json:
+  #               userId: "{{ $randomString() }}"
+  #               timestamp: "{{ $timestamp() }}"
+  #               action: "stress-test"
+  #             expect:
+  #               - statusCode: [200, 201, 400, 500, 502, 503, 504]
+  #         - think: 0.3
+  #       count: 2

@@ -61,7 +61,7 @@ config:
 
   # Payload configuration
   payload:
-    path: "./configs/test-data.csv"
+    path: "../configs/test-data.csv"
     fields:
       - "userId"
       - "action"
@@ -142,68 +142,62 @@ config:
 scenarios:
   # Scenario 1: Homepage rush (simulating viral content or marketing campaign)
   - name: "Homepage Spike Traffic"
-    weight: 40
+    weight: 100
     flow:
       - get:
           url: "/"
-          capture:
-            - json: "$.status"
-              as: "homeStatus"
           expect:
             - statusCode: [200, 429, 500, 502, 503, 504]  # Accept rate limiting and errors
       - think: 0.5  # Very short think time during spike
 
-  # Scenario 2: API endpoint burst
-  - name: "API Burst Traffic"
-    weight: 25
-    flow:
-      - get:
-          url: "/api/health"
-          expect:
-            - statusCode: [200, 429, 500, 502, 503, 504]
-      - get:
-          url: "/api/status"
-          expect:
-            - statusCode: [200, 404, 429, 500, 502, 503, 504]
-      - think: 0.3
+  # NOTE: Les scénarios suivants sont commentés car ils nécessitent
+  # que l'application Laravel soit configurée avec ces endpoints.
+  # Décommentez-les une fois que votre application est déployée et configurée.
 
-  # Scenario 3: Resource loading during spike
-  - name: "Resource Loading Spike"
-    weight: 20
-    flow:
-      - get:
-          url: "/"
-          expect:
-            - statusCode: [200, 429, 500, 502, 503, 504]
-      - loop:
-          - get:
-              url: "/assets/css/style.css"
-              expect:
-                - statusCode: [200, 404, 429, 500, 502, 503, 504]
-          - get:
-              url: "/assets/js/app.js"
-              expect:
-                - statusCode: [200, 404, 429, 500, 502, 503, 504]
-        count: 1
-      - think: 0.2
+  # # Scenario 2: API endpoint burst
+  # - name: "API Burst Traffic"
+  #   weight: 25
+  #   flow:
+  #     - get:
+  #         url: "/api/health"
+  #         expect:
+  #           - statusCode: [200, 429, 500, 502, 503, 504]
+  #     - get:
+  #         url: "/api/status"
+  #         expect:
+  #           - statusCode: [200, 404, 429, 500, 502, 503, 504]
+  #     - think: 0.3
 
-  # Scenario 4: POST requests during spike (simulating form submissions)
-  - name: "Spike Form Submissions"
-    weight: 15
-    flow:
-      - post:
-          url: "/api/data"
-          json:
-            userId: "{{ $randomString() }}"
-            timestamp: "{{ $timestamp() }}"
-            action: "spike-test"
-            spikeId: "{{ $randomNumber(1, 1000000) }}"
-            metadata:
-              testType: "spike"
-              phase: "surge"
-          expect:
-            - statusCode: [200, 201, 400, 429, 500, 502, 503, 504]
-      - think: 0.5
+  # # Scenario 3: Resource loading during spike
+  # - name: "Resource Loading Spike"
+  #   weight: 20
+  #   flow:
+  #     - get:
+  #         url: "/"
+  #         expect:
+  #           - statusCode: [200, 429, 500, 502, 503, 504]
+  #     - loop:
+  #         - get:
+  #             url: "/css/app.css"
+  #             expect:
+  #               - statusCode: [200, 404, 429, 500, 502, 503, 504]
+  #         - get:
+  #             url: "/js/app.js"
+  #             expect:
+  #               - statusCode: [200, 404, 429, 500, 502, 503, 504]
+  #       count: 1
+  #     - think: 0.2
 
-# Custom processor for additional logic
-processor: "./processors/custom-functions.js"
+  # # Scenario 4: POST requests during spike
+  # - name: "Spike Form Submissions"
+  #   weight: 15
+  #   flow:
+  #     - post:
+  #         url: "/api/data"
+  #         json:
+  #           userId: "{{ $randomString() }}"
+  #           timestamp: "{{ $timestamp() }}"
+  #           action: "spike-test"
+  #         expect:
+  #           - statusCode: [200, 201, 400, 429, 500, 502, 503, 504]
+  #     - think: 0.5

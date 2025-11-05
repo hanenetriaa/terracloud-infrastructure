@@ -112,7 +112,88 @@ Voir `docs/TEST_STRATEGY.md` pour la stratégie complète.
 - [ ] Monitoring Azure activé
 - [ ] Équipe notifiée
 
+## 🔧 Démarrage de l'Infrastructure
+
+### PaaS (Azure App Service)
+
+Avant de lancer les tests, **démarrez votre App Service** :
+
+```bash
+# Via Azure CLI
+az webapp start --name terracloud-dev-wa --resource-group rg-nce_4
+
+# Vérifier l'état
+az webapp show --name terracloud-dev-wa --resource-group rg-nce_4 --query state
+```
+
+Via Azure Portal :
+1. Accédez à https://portal.azure.com
+2. Recherchez "terracloud-dev-wa"
+3. Cliquez sur "Start" si le service est arrêté
+
+**Test rapide de disponibilité :**
+```bash
+curl -I https://terracloud-dev-wa.azurewebsites.net
+```
+
+### IaaS (Machine Virtuelle)
+
+⚠️ **L'infrastructure IaaS n'est pas encore créée.**
+
+Pour la créer, il faudra :
+1. Créer un fichier Terraform pour la VM (vm.tf)
+2. Configurer le réseau (IP publique, NSG)
+3. Installer et configurer le serveur web
+4. Déployer l'application
+
+## 🐛 Troubleshooting
+
+### Erreur "Invalid URL - undefined"
+**Cause :** Variable d'environnement non définie.
+```bash
+# Solution : définir la variable avant la commande
+PAAS_URL="https://terracloud-dev-wa.azurewebsites.net" artillery run -e paas scenarios/normal-load.yml
+```
+
+### Erreur "ENOENT: no such file or directory"
+**Cause :** Chemin incorrect.
+```bash
+# Solution : utilisez le chemin complet
+cd terraform/tests/performance
+artillery run -e paas scenarios/normal-load.yml
+```
+
+### Tous les tests échouent avec HTTP 403
+**Cause :** App Service arrêté ou non configuré.
+```bash
+# Solution : démarrez l'App Service
+az webapp start --name terracloud-dev-wa --resource-group rg-nce_4
+```
+
+### Erreurs ECONNRESET
+**Cause :** Le service ne peut pas gérer la charge.
+**Solutions :**
+- Augmenter le SKU de l'App Service (B1 → B2 ou S1)
+- Réduire l'arrivalRate dans les scénarios de test
+- Vérifier les logs de l'application
+
+### Test rapide de disponibilité
+
+Utilisez le scénario `availability-check.yml` pour vérifier rapidement si le service répond :
+
+```bash
+PAAS_URL="https://terracloud-dev-wa.azurewebsites.net" artillery run -e paas scenarios/availability-check.yml
+```
+
+Ce test est plus court (~30s) et ne teste que la disponibilité basique.
+
+## 📝 Notes importantes
+
+- Les scénarios de test sont actuellement configurés pour tester uniquement la page d'accueil (`/`)
+- Les endpoints API commentés dans les fichiers YAML peuvent être activés une fois l'application déployée
+- Assurez-vous que l'application Laravel est correctement configurée avant les tests complets
+
 ---
 
-**Responsable:** Syrine Ladhari  
+**Responsable:** Syrine Ladhari
 **Dernière mise à jour:** Novembre 2025

@@ -33,7 +33,7 @@ config:
 
   # Payload configuration (if needed for POST requests)
   payload:
-    path: "./configs/test-data.csv"
+    path: "../configs/test-data.csv"
     fields:
       - "userId"
       - "action"
@@ -79,57 +79,55 @@ config:
 
 # Test scenarios - Define user behavior patterns
 scenarios:
-  # Scenario 1: Homepage visitor
+  # Scenario 1: Homepage visitor - Test basique de la page d'accueil
   - name: "Homepage Load Test"
-    weight: 40
+    weight: 100
     flow:
       - get:
           url: "/"
-          capture:
-            - json: "$.status"
-              as: "homeStatus"
           expect:
             - statusCode: 200
       - think: 2  # User reads homepage for 2 seconds
 
-  # Scenario 2: API endpoint test (adjust based on your application)
-  - name: "API Health Check"
-    weight: 30
-    flow:
-      - get:
-          url: "/api/health"
-          expect:
-            - statusCode: 200
-            - contentType: json
-      - think: 1
+  # NOTE: Les scénarios suivants sont commentés car ils nécessitent
+  # que l'application Laravel soit configurée avec ces endpoints.
+  # Décommentez-les une fois que votre application est déployée et configurée.
 
-  # Scenario 3: Static resource loading
-  - name: "Static Resources"
-    weight: 20
-    flow:
-      - get:
-          url: "/assets/css/style.css"
-          expect:
-            - statusCode: 200
-      - get:
-          url: "/assets/js/app.js"
-          expect:
-            - statusCode: 200
-      - think: 1
+  # # Scenario 2: API endpoint test
+  # - name: "API Health Check"
+  #   weight: 30
+  #   flow:
+  #     - get:
+  #         url: "/api/health"
+  #         expect:
+  #           - statusCode: 200
+  #           - contentType: json
+  #     - think: 1
 
-  # Scenario 4: POST request simulation (adjust based on application)
-  - name: "Form Submission Simulation"
-    weight: 10
-    flow:
-      - post:
-          url: "/api/data"
-          json:
-            userId: "{{ $randomString() }}"
-            timestamp: "{{ $timestamp() }}"
-            action: "normal-load-test"
-          expect:
-            - statusCode: [200, 201]
-      - think: 3
+  # # Scenario 3: Static resource loading
+  # - name: "Static Resources"
+  #   weight: 20
+  #   flow:
+  #     - get:
+  #         url: "/css/app.css"
+  #         expect:
+  #           - statusCode: 200
+  #     - get:
+  #         url: "/js/app.js"
+  #         expect:
+  #           - statusCode: 200
+  #     - think: 1
 
-# Custom functions for data generation (optional)
-processor: "./processors/custom-functions.js"
+  # # Scenario 4: POST request simulation
+  # - name: "Form Submission Simulation"
+  #   weight: 10
+  #   flow:
+  #     - post:
+  #         url: "/api/data"
+  #         json:
+  #           userId: "{{ $randomString() }}"
+  #           timestamp: "{{ $timestamp() }}"
+  #           action: "normal-load-test"
+  #         expect:
+  #           - statusCode: [200, 201]
+  #     - think: 3
