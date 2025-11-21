@@ -18,10 +18,20 @@ resource "azurerm_linux_web_app" "app" {
 
   site_config {
     always_on = true
-    application_stack { php_version = "8.2" }
+    application_stack {
+      docker_image_name = "${var.container_image_repository}:${var.container_image_tag}"
+    }
+    ftps_state = "Disabled"
   }
 
-  tags = { managedBy = "terraform" }
+  app_settings = {
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
+    WEBSITES_PORT                       = tostring(var.container_port)
+  }
+
+  tags = {
+    managedBy = "terraform"
+  }
 }
 
 output "webapp_url" { value = "https://${azurerm_linux_web_app.app.default_hostname}" }
