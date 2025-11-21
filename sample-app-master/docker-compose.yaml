@@ -1,6 +1,9 @@
+version: "3.9"
+
 services:
   traefik:
     image: "traefik:v3.0"
+    platform: linux/amd64
     command:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -13,14 +16,13 @@ services:
       - "8082:8082"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
   app:
-    # set container name app
     container_name: app
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "8081:80"
     environment:
       APP_DEBUG: "true"
       APP_ENV: "dev"
@@ -36,8 +38,10 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.app.rule=HostRegexp(`.*`)"
+
   db:
     image: mysql:8.0
+    platform: linux/amd64
     restart: unless-stopped
     command: --default-authentication-plugin=mysql_native_password
     environment:
@@ -48,10 +52,11 @@ services:
       MYSQL_TCP_PORT: 3306
     volumes:
       - db_data:/var/lib/mysql
-      - ./mysql-init:/docker-entrypoint-initdb.d  # Permet d'exécuter des scripts SQL initiaux
+      - ./mysql-init:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 5s
       retries: 10
+
 volumes:
   db_data:

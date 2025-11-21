@@ -1,48 +1,104 @@
----
-- name: Déployer l'application Docker sur VM Azure
+- name: Deploy Docker App on Azure VM (Low RAM Mode)
   hosts: webserver
   become: yes
+  become_method: sudo
+  gather_facts: no
+
+  vars:
+    network_name: terracloud-net
+
   tasks:
-    - name: Installer les dépendances Docker
+    - name: Install minimal required packages and Python Docker SDK
       apt:
         name:
-          - apt-transport-https
-          - ca-certificates
           - curl
-          - software-properties-common
-        state: present
-      when: ansible_os_family == "Debian"
-
-    - name: Ajouter le dépôt Docker officiel
-      shell: |
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-        add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-      when: ansible_os_family == "Debian"
-
-    - name: Installer Docker
-      apt:
-        name: docker-ce
+          - ca-certificates
+          - python3-docker
         state: present
         update_cache: yes
-      when: ansible_os_family == "Debian"
 
-    - name: Lancer et activer Docker
+    - name: Start Docker (déjà installé)
       systemd:
         name: docker
         enabled: yes
         state: started
 
-    - name: Télécharger ton image Docker depuis Docker Hub
+    - name: Create Docker network
+      docker_network:
+        name: "{{ network_name }}"
+        driver: bridge
+
+    - name: Pull MySQL image
       docker_image:
-        name: stricken008/terracloud
-        tag: latest
+        name: stricken008/terracloud-mysql
+        tag: "8.0"
         source: pull
 
-    - name: Lancer le conteneur de ton app
+    - name: Pull Traefik image
+      docker_image:
+        name: stricken008/terracloud-traefik
+        tag: "v3.0"
+        source: pull
+
+    - name: Pull App image
+      docker_image:
+        name: stricken008/terracloud-app
+        tag: "latest"
+        source: pull
+
+    - name: Run MySQL container
+      docker_container:
+        name: terracloud-db
+        image: stricken008/terracloud-mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: app_root_password
+          MYSQL_DATABASE: app_database
+          MYSQL_USER: app_user
+          MYSQL_PASSWORD: app_password
+        state: started
+        restart_policy: always
+        networks:
+          - "{{ network_name }}"
+
+    - name: Run App container
       docker_container:
         name: terracloud-app
-        image: stricken008/terracloud:latest
+        image: stricken008/terracloud-app:latest
+        env:
+          DB_HOST: terracloud-db
+          DB_PORT: 3306
+          DB_DATABASE: app_database
+          DB_USERNAME: app_user
+          DB_PASSWORD: app_password
+          APP_DEBUG: "true"
+          APP_ENV: "dev"
+          APP_KEY: "base64:DJYTvaRkEZ/YcQsX3TMpB0iCjgme2rhlIOus9A1hnj4="
         state: started
         restart_policy: always
         published_ports:
           - "80:80"
+        networks:
+          - "{{ network_name }}"
+        depends_on:
+          - terracloud-db
+
+    - name: Run Traefik container
+      docker_container:
+        name: terracloud-traefik
+        image: stricken008/terracloud-traefik:v3.0
+        state: started
+        restart_policy: always
+        published_ports:
+          - "80:80"
+          - "8082:8082"
+        networks:
+          - "{{ network_name }}"
+        command:
+          - "--providers.docker=true"
+          - "--providers.docker.exposedbydefault=false"
+          - "--entrypoints.web.address=:80"
+          - "--entrypoints.metrics.address=:8082"
+          - "--metrics.prometheus=true"
+          - "--metrics.prometheus.entryPoint=metrics"
+        volumes:
+          - "/var/run/docker.sock:/var/run/docker.sock:ro"
