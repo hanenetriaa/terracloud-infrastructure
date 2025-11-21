@@ -11,7 +11,7 @@ variable "app_name" {
 variable "container_image_repository" {
   description = "Docker image repository (e.g. myorg/app)"
   type        = string
-  default     = "stricken008/terracloud"
+  default     = "stricken008/terracloud-app"
 }
 
 variable "container_image_tag" {
