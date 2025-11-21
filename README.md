@@ -3,6 +3,7 @@
 Projet de comparaison IaaS vs PaaS sur Azure
 
 ## Structure
+
 - `terraform/` - Infrastructure as Code
 - `ansible/` - Configuration management
 - `docker/` - Containerisation
@@ -11,12 +12,20 @@ Projet de comparaison IaaS vs PaaS sur Azure
 - `tests/` - Tests de performance
 
 ## Équipe
+
 - Hanene Triaa - Team Lead
 - Eloi Terrol - Infrastructure
 - Axel Bacquet - Docker/Ansible
 - Syrine Ladhari - Tests/Documentation
 
 ## Setup
+
 ```bash
 cd terraform
 terraform init
+
+ ## Sur la vm
+docker start terracloud-db
+docker start terracloud-app
+docker start terracloud-traefik
+```
