@@ -1,0 +1,1245 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.Navigation utilisateur standard": 2850,
+      "vusers.created": 4800,
+      "http.requests": 4803,
+      "vusers.created_by_name.Lecture seule": 1469,
+      "vusers.created_by_name.Requêtes API intensives": 481,
+      "http.codes.500": 5,
+      "http.responses": 5,
+      "http.downloaded_bytes": 3142350,
+      "plugins.metrics-by-endpoint./.codes.500": 5,
+      "errors.Failed capture or match": 2,
+      "vusers.failed": 4800,
+      "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 4314,
+      "errors.ETIMEDOUT": 4798,
+      "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 484
+    },
+    "rates": {
+      "http.request_rate": 7
+    },
+    "firstCounterAt": 1763843716681,
+    "firstHistogramAt": 1763843720788,
+    "lastCounterAt": 1763844145950,
+    "lastHistogramAt": 1763843726311,
+    "firstMetricAt": 1763843716681,
+    "lastMetricAt": 1763844145950,
+    "period": 1763844140000,
+    "summaries": {
+      "http.response_time": {
+        "min": 3812,
+        "max": 8556,
+        "count": 5,
+        "mean": 5573.4,
+        "p50": 5378.9,
+        "median": 5378.9,
+        "p75": 5487.5,
+        "p90": 5487.5,
+        "p95": 5487.5,
+        "p99": 5487.5,
+        "p999": 5487.5
+      },
+      "http.response_time.5xx": {
+        "min": 3812,
+        "max": 8556,
+        "count": 5,
+        "mean": 5573.4,
+        "p50": 5378.9,
+        "median": 5378.9,
+        "p75": 5487.5,
+        "p90": 5487.5,
+        "p95": 5487.5,
+        "p99": 5487.5,
+        "p999": 5487.5
+      },
+      "plugins.metrics-by-endpoint.response_time./": {
+        "min": 3812,
+        "max": 8556,
+        "count": 5,
+        "mean": 5573.4,
+        "p50": 5378.9,
+        "median": 5378.9,
+        "p75": 5487.5,
+        "p90": 5487.5,
+        "p95": 5487.5,
+        "p99": 5487.5,
+        "p999": 5487.5
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": 3812,
+        "max": 8556,
+        "count": 5,
+        "mean": 5573.4,
+        "p50": 5378.9,
+        "median": 5378.9,
+        "p75": 5487.5,
+        "p90": 5487.5,
+        "p95": 5487.5,
+        "p99": 5487.5,
+        "p999": 5487.5
+      },
+      "http.response_time.5xx": {
+        "min": 3812,
+        "max": 8556,
+        "count": 5,
+        "mean": 5573.4,
+        "p50": 5378.9,
+        "median": 5378.9,
+        "p75": 5487.5,
+        "p90": 5487.5,
+        "p95": 5487.5,
+        "p99": 5487.5,
+        "p999": 5487.5
+      },
+      "plugins.metrics-by-endpoint.response_time./": {
+        "min": 3812,
+        "max": 8556,
+        "count": 5,
+        "mean": 5573.4,
+        "p50": 5378.9,
+        "median": 5378.9,
+        "p75": 5487.5,
+        "p90": 5487.5,
+        "p95": 5487.5,
+        "p99": 5487.5,
+        "p999": 5487.5
+      }
+    }
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 11,
+        "vusers.created": 20,
+        "http.requests": 20,
+        "vusers.created_by_name.Lecture seule": 8,
+        "vusers.created_by_name.Requêtes API intensives": 1
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843716681,
+      "lastCounterAt": 1763843719932,
+      "firstMetricAt": 1763843716681,
+      "lastMetricAt": 1763843719932,
+      "period": "1763843710000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Requêtes API intensives": 6,
+        "vusers.created": 50,
+        "http.requests": 53,
+        "http.codes.500": 5,
+        "http.responses": 5,
+        "vusers.created_by_name.Lecture seule": 17,
+        "http.downloaded_bytes": 3142350,
+        "plugins.metrics-by-endpoint./.codes.500": 5,
+        "errors.Failed capture or match": 2,
+        "vusers.failed": 17,
+        "vusers.created_by_name.Navigation utilisateur standard": 27,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 14,
+        "errors.ETIMEDOUT": 15,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 1
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843720716,
+      "firstHistogramAt": 1763843720788,
+      "lastCounterAt": 1763843729932,
+      "lastHistogramAt": 1763843726311,
+      "firstMetricAt": 1763843720716,
+      "lastMetricAt": 1763843729932,
+      "period": "1763843720000",
+      "summaries": {
+        "http.response_time": {
+          "min": 3812,
+          "max": 8556,
+          "count": 5,
+          "mean": 5573.4,
+          "p50": 5378.9,
+          "median": 5378.9,
+          "p75": 5487.5,
+          "p90": 5487.5,
+          "p95": 5487.5,
+          "p99": 5487.5,
+          "p999": 5487.5
+        },
+        "http.response_time.5xx": {
+          "min": 3812,
+          "max": 8556,
+          "count": 5,
+          "mean": 5573.4,
+          "p50": 5378.9,
+          "median": 5378.9,
+          "p75": 5487.5,
+          "p90": 5487.5,
+          "p95": 5487.5,
+          "p99": 5487.5,
+          "p999": 5487.5
+        },
+        "plugins.metrics-by-endpoint.response_time./": {
+          "min": 3812,
+          "max": 8556,
+          "count": 5,
+          "mean": 5573.4,
+          "p50": 5378.9,
+          "median": 5378.9,
+          "p75": 5487.5,
+          "p90": 5487.5,
+          "p95": 5487.5,
+          "p99": 5487.5,
+          "p999": 5487.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 3812,
+          "max": 8556,
+          "count": 5,
+          "mean": 5573.4,
+          "p50": 5378.9,
+          "median": 5378.9,
+          "p75": 5487.5,
+          "p90": 5487.5,
+          "p95": 5487.5,
+          "p99": 5487.5,
+          "p999": 5487.5
+        },
+        "http.response_time.5xx": {
+          "min": 3812,
+          "max": 8556,
+          "count": 5,
+          "mean": 5573.4,
+          "p50": 5378.9,
+          "median": 5378.9,
+          "p75": 5487.5,
+          "p90": 5487.5,
+          "p95": 5487.5,
+          "p99": 5487.5,
+          "p999": 5487.5
+        },
+        "plugins.metrics-by-endpoint.response_time./": {
+          "min": 3812,
+          "max": 8556,
+          "count": 5,
+          "mean": 5573.4,
+          "p50": 5378.9,
+          "median": 5378.9,
+          "p75": 5487.5,
+          "p90": 5487.5,
+          "p95": 5487.5,
+          "p99": 5487.5,
+          "p999": 5487.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Requêtes API intensives": 8,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 9,
+        "errors.ETIMEDOUT": 53,
+        "vusers.failed": 53,
+        "vusers.created_by_name.Navigation utilisateur standard": 31,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 44,
+        "vusers.created_by_name.Lecture seule": 11
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843730677,
+      "lastCounterAt": 1763843739939,
+      "firstMetricAt": 1763843730677,
+      "lastMetricAt": 1763843739939,
+      "period": "1763843730000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 30,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 8,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 42,
+        "vusers.created_by_name.Lecture seule": 15,
+        "vusers.created_by_name.Requêtes API intensives": 5
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843740677,
+      "lastCounterAt": 1763843749931,
+      "firstMetricAt": 1763843740677,
+      "lastMetricAt": 1763843749931,
+      "period": "1763843740000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 30,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 45,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "vusers.created_by_name.Lecture seule": 17,
+        "vusers.created_by_name.Requêtes API intensives": 3,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 5
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843750677,
+      "lastCounterAt": 1763843759933,
+      "firstMetricAt": 1763843750677,
+      "lastMetricAt": 1763843759933,
+      "period": "1763843750000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 28,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 47,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "vusers.created_by_name.Requêtes API intensives": 5,
+        "vusers.created_by_name.Lecture seule": 17,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 3
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843760677,
+      "lastCounterAt": 1763843769933,
+      "firstMetricAt": 1763843760677,
+      "lastMetricAt": 1763843769933,
+      "period": "1763843760000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Requêtes API intensives": 9,
+        "vusers.created": 68,
+        "http.requests": 68,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 45,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "vusers.created_by_name.Navigation utilisateur standard": 42,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 5,
+        "vusers.created_by_name.Lecture seule": 17
+      },
+      "rates": {
+        "http.request_rate": 12
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843770677,
+      "lastCounterAt": 1763843779932,
+      "firstMetricAt": 1763843770677,
+      "lastMetricAt": 1763843779932,
+      "period": "1763843770000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 55,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 9,
+        "errors.ETIMEDOUT": 68,
+        "vusers.failed": 68,
+        "vusers.created_by_name.Requêtes API intensives": 13,
+        "vusers.created_by_name.Lecture seule": 32,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 59
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843780011,
+      "lastCounterAt": 1763843789932,
+      "firstMetricAt": 1763843780011,
+      "lastMetricAt": 1763843789932,
+      "period": "1763843780000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 66,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 87,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 28,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 13,
+        "vusers.created_by_name.Requêtes API intensives": 6
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843790011,
+      "lastCounterAt": 1763843799932,
+      "firstMetricAt": 1763843790011,
+      "lastMetricAt": 1763843799932,
+      "period": "1763843790000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 63,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 94,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 27,
+        "vusers.created_by_name.Requêtes API intensives": 10,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 6
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843800011,
+      "lastCounterAt": 1763843809932,
+      "firstMetricAt": 1763843800011,
+      "lastMetricAt": 1763843809932,
+      "period": "1763843800000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 59,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 90,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 30,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 10,
+        "vusers.created_by_name.Requêtes API intensives": 11
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843810011,
+      "lastCounterAt": 1763843819933,
+      "firstMetricAt": 1763843810011,
+      "lastMetricAt": 1763843819933,
+      "period": "1763843810000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 62,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 89,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 26,
+        "vusers.created_by_name.Requêtes API intensives": 12,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 11
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843820011,
+      "lastCounterAt": 1763843829932,
+      "firstMetricAt": 1763843820011,
+      "lastMetricAt": 1763843829932,
+      "period": "1763843820000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 60,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 88,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 32,
+        "vusers.created_by_name.Requêtes API intensives": 8,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 12
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843830011,
+      "lastCounterAt": 1763843839931,
+      "firstMetricAt": 1763843830011,
+      "lastMetricAt": 1763843839931,
+      "period": "1763843830000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 58,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 92,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 35,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 8,
+        "vusers.created_by_name.Requêtes API intensives": 7
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843840011,
+      "lastCounterAt": 1763843849931,
+      "firstMetricAt": 1763843840011,
+      "lastMetricAt": 1763843849931,
+      "period": "1763843840000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 68,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 93,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Requêtes API intensives": 7,
+        "vusers.created_by_name.Lecture seule": 25,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 7
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843850011,
+      "lastCounterAt": 1763843859930,
+      "firstMetricAt": 1763843850011,
+      "lastMetricAt": 1763843859930,
+      "period": "1763843850000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 59,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 93,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 7,
+        "vusers.created_by_name.Lecture seule": 30,
+        "vusers.created_by_name.Requêtes API intensives": 11
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843860011,
+      "lastCounterAt": 1763843869930,
+      "firstMetricAt": 1763843860011,
+      "lastMetricAt": 1763843869930,
+      "period": "1763843860000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 54,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 89,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 39,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 11,
+        "vusers.created_by_name.Requêtes API intensives": 7
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843870011,
+      "lastCounterAt": 1763843879940,
+      "firstMetricAt": 1763843870011,
+      "lastMetricAt": 1763843879940,
+      "period": "1763843870000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Requêtes API intensives": 8,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 93,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Navigation utilisateur standard": 62,
+        "vusers.created_by_name.Lecture seule": 30,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 7
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843880011,
+      "lastCounterAt": 1763843889951,
+      "firstMetricAt": 1763843880011,
+      "lastMetricAt": 1763843889951,
+      "period": "1763843880000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 52,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 8,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 92,
+        "vusers.created_by_name.Lecture seule": 37,
+        "vusers.created_by_name.Requêtes API intensives": 11
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843890011,
+      "lastCounterAt": 1763843899935,
+      "firstMetricAt": 1763843890011,
+      "lastMetricAt": 1763843899935,
+      "period": "1763843890000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 58,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 89,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 35,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 11,
+        "vusers.created_by_name.Requêtes API intensives": 7
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843900011,
+      "lastCounterAt": 1763843909936,
+      "firstMetricAt": 1763843900011,
+      "lastMetricAt": 1763843909936,
+      "period": "1763843900000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 56,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 93,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 33,
+        "vusers.created_by_name.Requêtes API intensives": 11,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 7
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843910011,
+      "lastCounterAt": 1763843919956,
+      "firstMetricAt": 1763843910011,
+      "lastMetricAt": 1763843919956,
+      "period": "1763843910000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 61,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 89,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Lecture seule": 27,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 11,
+        "vusers.created_by_name.Requêtes API intensives": 12
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843920023,
+      "lastCounterAt": 1763843929944,
+      "firstMetricAt": 1763843920023,
+      "lastMetricAt": 1763843929944,
+      "period": "1763843920000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Lecture seule": 27,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 88,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Navigation utilisateur standard": 65,
+        "vusers.created_by_name.Requêtes API intensives": 8,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 12
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843930011,
+      "lastCounterAt": 1763843939933,
+      "firstMetricAt": 1763843930011,
+      "lastMetricAt": 1763843939933,
+      "period": "1763843930000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Requêtes API intensives": 11,
+        "vusers.created": 100,
+        "http.requests": 100,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 92,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Navigation utilisateur standard": 56,
+        "vusers.created_by_name.Lecture seule": 33,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 8
+      },
+      "rates": {
+        "http.request_rate": 10
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843940011,
+      "lastCounterAt": 1763843949937,
+      "firstMetricAt": 1763843940011,
+      "lastMetricAt": 1763843949937,
+      "period": "1763843940000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 11,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100,
+        "vusers.created_by_name.Navigation utilisateur standard": 87,
+        "vusers.created": 140,
+        "http.requests": 140,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 89,
+        "vusers.created_by_name.Lecture seule": 42,
+        "vusers.created_by_name.Requêtes API intensives": 11
+      },
+      "rates": {
+        "http.request_rate": 16
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843950011,
+      "lastCounterAt": 1763843959934,
+      "firstMetricAt": 1763843950011,
+      "lastMetricAt": 1763843959934,
+      "period": "1763843950000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 124,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 129,
+        "errors.ETIMEDOUT": 140,
+        "vusers.failed": 140,
+        "vusers.created_by_name.Requêtes API intensives": 17,
+        "vusers.created_by_name.Lecture seule": 59,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 11
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843960013,
+      "lastCounterAt": 1763843969934,
+      "firstMetricAt": 1763843960013,
+      "lastMetricAt": 1763843969934,
+      "period": "1763843960000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Lecture seule": 58,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 183,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Navigation utilisateur standard": 126,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 17,
+        "vusers.created_by_name.Requêtes API intensives": 16
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843970013,
+      "lastCounterAt": 1763843979934,
+      "firstMetricAt": 1763843970013,
+      "lastMetricAt": 1763843979934,
+      "period": "1763843970000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 124,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 184,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Lecture seule": 52,
+        "vusers.created_by_name.Requêtes API intensives": 24,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 16
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843980013,
+      "lastCounterAt": 1763843989933,
+      "firstMetricAt": 1763843980013,
+      "lastMetricAt": 1763843989933,
+      "period": "1763843980000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 126,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 176,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Lecture seule": 54,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 24,
+        "vusers.created_by_name.Requêtes API intensives": 20
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763843990013,
+      "lastCounterAt": 1763843999933,
+      "firstMetricAt": 1763843990013,
+      "lastMetricAt": 1763843999933,
+      "period": "1763843990000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 122,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 180,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Requêtes API intensives": 22,
+        "vusers.created_by_name.Lecture seule": 56,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 20
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844000013,
+      "lastCounterAt": 1763844009934,
+      "firstMetricAt": 1763844000013,
+      "lastMetricAt": 1763844009934,
+      "period": "1763844000000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Lecture seule": 75,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 178,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Requêtes API intensives": 16,
+        "vusers.created_by_name.Navigation utilisateur standard": 109,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 22
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844010013,
+      "lastCounterAt": 1763844019934,
+      "firstMetricAt": 1763844010013,
+      "lastMetricAt": 1763844019934,
+      "period": "1763844010000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Lecture seule": 55,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 184,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 16,
+        "vusers.created_by_name.Navigation utilisateur standard": 109,
+        "vusers.created_by_name.Requêtes API intensives": 36
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844020013,
+      "lastCounterAt": 1763844029939,
+      "firstMetricAt": 1763844020013,
+      "lastMetricAt": 1763844029939,
+      "period": "1763844020000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Lecture seule": 52,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 164,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Navigation utilisateur standard": 127,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 36,
+        "vusers.created_by_name.Requêtes API intensives": 21
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844030013,
+      "lastCounterAt": 1763844039948,
+      "firstMetricAt": 1763844030013,
+      "lastMetricAt": 1763844039948,
+      "period": "1763844030000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 117,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 179,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Requêtes API intensives": 19,
+        "vusers.created_by_name.Lecture seule": 64,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 21
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844040013,
+      "lastCounterAt": 1763844049933,
+      "firstMetricAt": 1763844040013,
+      "lastMetricAt": 1763844049933,
+      "period": "1763844040000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Lecture seule": 71,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 181,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Navigation utilisateur standard": 114,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 19,
+        "vusers.created_by_name.Requêtes API intensives": 15
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844050013,
+      "lastCounterAt": 1763844059933,
+      "firstMetricAt": 1763844050013,
+      "lastMetricAt": 1763844059933,
+      "period": "1763844050000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Lecture seule": 65,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 185,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Navigation utilisateur standard": 114,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 15,
+        "vusers.created_by_name.Requêtes API intensives": 21
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844060013,
+      "lastCounterAt": 1763844069936,
+      "firstMetricAt": 1763844060013,
+      "lastMetricAt": 1763844069936,
+      "period": "1763844060000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Lecture seule": 40,
+        "vusers.created": 142,
+        "http.requests": 142,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 179,
+        "errors.ETIMEDOUT": 200,
+        "vusers.failed": 200,
+        "vusers.created_by_name.Navigation utilisateur standard": 85,
+        "vusers.created_by_name.Requêtes API intensives": 17,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 21
+      },
+      "rates": {
+        "http.request_rate": 15
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844070012,
+      "lastCounterAt": 1763844079934,
+      "firstMetricAt": 1763844070012,
+      "lastMetricAt": 1763844079934,
+      "period": "1763844070000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 125,
+        "errors.ETIMEDOUT": 142,
+        "vusers.failed": 142,
+        "vusers.created_by_name.Requêtes API intensives": 7,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "vusers.created_by_name.Lecture seule": 27,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 17,
+        "vusers.created_by_name.Navigation utilisateur standard": 16
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844080018,
+      "lastCounterAt": 1763844089935,
+      "firstMetricAt": 1763844080018,
+      "lastMetricAt": 1763844089935,
+      "period": "1763844080000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 28,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 7,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 43,
+        "vusers.created_by_name.Lecture seule": 17,
+        "vusers.created_by_name.Requêtes API intensives": 5
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844090680,
+      "lastCounterAt": 1763844099938,
+      "firstMetricAt": 1763844090680,
+      "lastMetricAt": 1763844099938,
+      "period": "1763844090000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 23,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 45,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "vusers.created_by_name.Requêtes API intensives": 8,
+        "vusers.created_by_name.Lecture seule": 19,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 5
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844100680,
+      "lastCounterAt": 1763844109946,
+      "firstMetricAt": 1763844100680,
+      "lastMetricAt": 1763844109946,
+      "period": "1763844100000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 31,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 42,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "vusers.created_by_name.Requêtes API intensives": 4,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 8,
+        "vusers.created_by_name.Lecture seule": 15
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844110680,
+      "lastCounterAt": 1763844119934,
+      "firstMetricAt": 1763844110680,
+      "lastMetricAt": 1763844119934,
+      "period": "1763844110000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 34,
+        "vusers.created": 50,
+        "http.requests": 50,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 46,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 4,
+        "vusers.created_by_name.Lecture seule": 13,
+        "vusers.created_by_name.Requêtes API intensives": 3
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844120680,
+      "lastCounterAt": 1763844129934,
+      "firstMetricAt": 1763844120680,
+      "lastMetricAt": 1763844129934,
+      "period": "1763844120000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Navigation utilisateur standard": 21,
+        "vusers.created": 30,
+        "http.requests": 30,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 47,
+        "errors.ETIMEDOUT": 50,
+        "vusers.failed": 50,
+        "vusers.created_by_name.Lecture seule": 7,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 3,
+        "vusers.created_by_name.Requêtes API intensives": 2
+      },
+      "rates": {
+        "http.request_rate": 5
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844130680,
+      "lastCounterAt": 1763844139943,
+      "firstMetricAt": 1763844130680,
+      "lastMetricAt": 1763844139943,
+      "period": "1763844130000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 28,
+        "errors.ETIMEDOUT": 30,
+        "vusers.failed": 30,
+        "plugins.metrics-by-endpoint./api/counters.errors.ETIMEDOUT": 2
+      },
+      "rates": {},
+      "firstCounterAt": 1763844140686,
+      "lastCounterAt": 1763844145950,
+      "firstMetricAt": 1763844140686,
+      "lastMetricAt": 1763844145950,
+      "period": "1763844140000",
+      "summaries": {},
+      "histograms": {}
+    }
+  ]
+}

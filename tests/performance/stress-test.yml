@@ -1,0 +1,44 @@
+config:
+  target: "{{ $processEnvironment.TARGET_URL }}"
+  timeout: 30
+  phases:
+    # Montée en charge rapide
+    - duration: 30
+      arrivalRate: 10
+      rampTo: 50
+      name: "Ramp up to 50 users/sec"
+    
+    # Maintien charge élevée
+    - duration: 120
+      arrivalRate: 50
+      name: "Sustained stress - 50 users/sec"
+    
+    # Pic extrême
+    - duration: 60
+      arrivalRate: 100
+      name: "Extreme peak - 100 users/sec"
+    
+    # Descente
+    - duration: 30
+      arrivalRate: 100
+      rampTo: 10
+      name: "Cool down"
+
+scenarios:
+  - name: "Heavy load scenario"
+    flow:
+      - get:
+          url: "/"
+      - think: 0.5
+      
+      - get:
+          url: "/api/counters"
+      - think: 0.3
+      
+      - loop:
+        - post:
+            url: "/api/counters/1/increment"
+            json:
+              amount: 1
+        - think: 0.2
+        count: 3

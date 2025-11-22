@@ -1,0 +1,561 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.Heavy load scenario": 14550,
+      "vusers.created": 14550,
+      "http.requests": 14550,
+      "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 14550,
+      "errors.ETIMEDOUT": 14550,
+      "vusers.failed": 14550
+    },
+    "rates": {
+      "http.request_rate": 57
+    },
+    "firstCounterAt": 1763844183073,
+    "lastCounterAt": 1763844433326,
+    "firstMetricAt": 1763844183073,
+    "lastMetricAt": 1763844433326,
+    "period": 1763844430000,
+    "summaries": {},
+    "histograms": {}
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 100,
+        "vusers.created": 100,
+        "http.requests": 100
+      },
+      "rates": {
+        "http.request_rate": 16
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844183073,
+      "lastCounterAt": 1763844189958,
+      "firstMetricAt": 1763844183073,
+      "lastMetricAt": 1763844189958,
+      "period": "1763844180000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 260,
+        "vusers.created": 260,
+        "http.requests": 260,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 100,
+        "errors.ETIMEDOUT": 100,
+        "vusers.failed": 100
+      },
+      "rates": {
+        "http.request_rate": 27
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844190003,
+      "lastCounterAt": 1763844199988,
+      "firstMetricAt": 1763844190003,
+      "lastMetricAt": 1763844199988,
+      "period": "1763844190000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 395,
+        "vusers.created": 395,
+        "http.requests": 395,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 260,
+        "errors.ETIMEDOUT": 260,
+        "vusers.failed": 260
+      },
+      "rates": {
+        "http.request_rate": 40
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844200016,
+      "lastCounterAt": 1763844209999,
+      "firstMetricAt": 1763844200016,
+      "lastMetricAt": 1763844209999,
+      "period": "1763844200000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 494,
+        "vusers.created": 494,
+        "http.requests": 494,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 395,
+        "errors.ETIMEDOUT": 395,
+        "vusers.failed": 395
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844210031,
+      "lastCounterAt": 1763844219999,
+      "firstMetricAt": 1763844210031,
+      "lastMetricAt": 1763844219999,
+      "period": "1763844210000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 494,
+        "errors.ETIMEDOUT": 494,
+        "vusers.failed": 494
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844220001,
+      "lastCounterAt": 1763844229999,
+      "firstMetricAt": 1763844220001,
+      "lastMetricAt": 1763844229999,
+      "period": "1763844220000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 499,
+        "errors.ETIMEDOUT": 499,
+        "vusers.failed": 499
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844230001,
+      "lastCounterAt": 1763844239999,
+      "firstMetricAt": 1763844230001,
+      "lastMetricAt": 1763844239999,
+      "period": "1763844230000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 500,
+        "errors.ETIMEDOUT": 500,
+        "vusers.failed": 500
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844240001,
+      "lastCounterAt": 1763844249999,
+      "firstMetricAt": 1763844240001,
+      "lastMetricAt": 1763844249999,
+      "period": "1763844240000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 499,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 500,
+        "errors.ETIMEDOUT": 500,
+        "vusers.failed": 500
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844250001,
+      "lastCounterAt": 1763844259996,
+      "firstMetricAt": 1763844250001,
+      "lastMetricAt": 1763844259996,
+      "period": "1763844250000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 501,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 500,
+        "errors.ETIMEDOUT": 500,
+        "vusers.failed": 500
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844260000,
+      "lastCounterAt": 1763844269999,
+      "firstMetricAt": 1763844260000,
+      "lastMetricAt": 1763844269999,
+      "period": "1763844260000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 501,
+        "errors.ETIMEDOUT": 501,
+        "vusers.failed": 501
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844270001,
+      "lastCounterAt": 1763844279999,
+      "firstMetricAt": 1763844270001,
+      "lastMetricAt": 1763844279999,
+      "period": "1763844270000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 500,
+        "errors.ETIMEDOUT": 500,
+        "vusers.failed": 500
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844280000,
+      "lastCounterAt": 1763844289998,
+      "firstMetricAt": 1763844280000,
+      "lastMetricAt": 1763844289998,
+      "period": "1763844280000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 500,
+        "errors.ETIMEDOUT": 499,
+        "vusers.failed": 499
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844290000,
+      "lastCounterAt": 1763844299999,
+      "firstMetricAt": 1763844290000,
+      "lastMetricAt": 1763844299999,
+      "period": "1763844290000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 500,
+        "errors.ETIMEDOUT": 501,
+        "vusers.failed": 501
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844300000,
+      "lastCounterAt": 1763844309999,
+      "firstMetricAt": 1763844300000,
+      "lastMetricAt": 1763844309999,
+      "period": "1763844300000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 499,
+        "errors.ETIMEDOUT": 499,
+        "vusers.failed": 499,
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844310001,
+      "lastCounterAt": 1763844319999,
+      "firstMetricAt": 1763844310001,
+      "lastMetricAt": 1763844319999,
+      "period": "1763844310000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 500,
+        "vusers.created": 500,
+        "http.requests": 500,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 500,
+        "errors.ETIMEDOUT": 500,
+        "vusers.failed": 500
+      },
+      "rates": {
+        "http.request_rate": 50
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844320000,
+      "lastCounterAt": 1763844329999,
+      "firstMetricAt": 1763844320000,
+      "lastMetricAt": 1763844329999,
+      "period": "1763844320000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 851,
+        "vusers.created": 851,
+        "http.requests": 851,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 501,
+        "errors.ETIMEDOUT": 501,
+        "vusers.failed": 501
+      },
+      "rates": {
+        "http.request_rate": 86
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844330001,
+      "lastCounterAt": 1763844339999,
+      "firstMetricAt": 1763844330001,
+      "lastMetricAt": 1763844339999,
+      "period": "1763844330000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 851,
+        "errors.ETIMEDOUT": 851,
+        "vusers.failed": 851
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844340000,
+      "lastCounterAt": 1763844349978,
+      "firstMetricAt": 1763844340000,
+      "lastMetricAt": 1763844349978,
+      "period": "1763844340000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 1001,
+        "vusers.created": 1001,
+        "http.requests": 1000,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 1000,
+        "errors.ETIMEDOUT": 1000,
+        "vusers.failed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844350000,
+      "lastCounterAt": 1763844359999,
+      "firstMetricAt": 1763844350000,
+      "lastMetricAt": 1763844359999,
+      "period": "1763844350000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 1000,
+        "errors.ETIMEDOUT": 1000,
+        "vusers.failed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844360000,
+      "lastCounterAt": 1763844369999,
+      "firstMetricAt": 1763844360000,
+      "lastMetricAt": 1763844369999,
+      "period": "1763844360000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 1000,
+        "errors.ETIMEDOUT": 1000,
+        "vusers.failed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844370000,
+      "lastCounterAt": 1763844379999,
+      "firstMetricAt": 1763844370000,
+      "lastMetricAt": 1763844379999,
+      "period": "1763844370000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 1000,
+        "errors.ETIMEDOUT": 1000,
+        "vusers.failed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844380000,
+      "lastCounterAt": 1763844389999,
+      "firstMetricAt": 1763844380000,
+      "lastMetricAt": 1763844389999,
+      "period": "1763844380000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 932,
+        "vusers.created": 932,
+        "http.requests": 933,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 1000,
+        "errors.ETIMEDOUT": 1000,
+        "vusers.failed": 1000
+      },
+      "rates": {
+        "http.request_rate": 93
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844390000,
+      "lastCounterAt": 1763844399987,
+      "firstMetricAt": 1763844390000,
+      "lastMetricAt": 1763844399987,
+      "period": "1763844390000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Heavy load scenario": 640,
+        "vusers.created": 640,
+        "http.requests": 639,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 933,
+        "errors.ETIMEDOUT": 933,
+        "vusers.failed": 933
+      },
+      "rates": {
+        "http.request_rate": 64
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844400017,
+      "lastCounterAt": 1763844409998,
+      "firstMetricAt": 1763844400017,
+      "lastMetricAt": 1763844409998,
+      "period": "1763844400000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 639,
+        "errors.ETIMEDOUT": 639,
+        "vusers.failed": 639,
+        "vusers.created_by_name.Heavy load scenario": 333,
+        "vusers.created": 333,
+        "http.requests": 334
+      },
+      "rates": {
+        "http.request_rate": 35
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844410001,
+      "lastCounterAt": 1763844419981,
+      "firstMetricAt": 1763844410001,
+      "lastMetricAt": 1763844419981,
+      "period": "1763844410000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 334,
+        "errors.ETIMEDOUT": 334,
+        "vusers.failed": 334,
+        "vusers.created_by_name.Heavy load scenario": 44,
+        "vusers.created": 44,
+        "http.requests": 44
+      },
+      "rates": {
+        "http.request_rate": 16
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1763844420013,
+      "lastCounterAt": 1763844429993,
+      "firstMetricAt": 1763844420013,
+      "lastMetricAt": 1763844429993,
+      "period": "1763844420000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 44,
+        "errors.ETIMEDOUT": 44,
+        "vusers.failed": 44
+      },
+      "rates": {},
+      "firstCounterAt": 1763844430077,
+      "lastCounterAt": 1763844433326,
+      "firstMetricAt": 1763844430077,
+      "lastMetricAt": 1763844433326,
+      "period": "1763844430000",
+      "summaries": {},
+      "histograms": {}
+    }
+  ]
+}
