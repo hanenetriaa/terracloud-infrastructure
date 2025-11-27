@@ -1,0 +1,133 @@
+config:
+  # Target configuration - will be overridden by environment-specific configs
+  target: "{{ $processEnvironment.TARGET_URL }}"
+
+  # Test phases for normal load scenario
+  phases:
+    # Warm-up phase: gradually increase load
+    - duration: 120
+      arrivalRate: 2
+      rampTo: 10
+      name: "Ramp-up phase"
+
+    # Sustained load phase: maintain steady load
+    - duration: 360
+      arrivalRate: 10
+      name: "Sustained load phase"
+
+    # Cool-down phase: gradually decrease load
+    - duration: 120
+      arrivalRate: 10
+      rampTo: 2
+      name: "Ramp-down phase"
+
+  # Performance thresholds and monitoring
+  ensure:
+    maxErrorRate: 1          # Maximum 1% error rate
+    p95: 1000                # 95th percentile response time < 1000ms
+    p99: 2000                # 99th percentile response time < 2000ms
+
+  # HTTP configuration
+  http:
+    timeout: 10              # Request timeout in seconds
+
+  # Payload configuration (if needed for POST requests)
+  payload:
+    path: "../configs/test-data.csv"
+    fields:
+      - "userId"
+      - "action"
+    skipHeader: true
+
+  # Plugin configuration for detailed reporting
+  plugins:
+    metrics-by-endpoint:
+      # Group metrics by endpoint for detailed analysis
+      stripQueryString: true
+
+  # Environment-specific configurations
+  environments:
+    iaas:
+      target: "{{ $processEnvironment.IAAS_URL }}"
+      phases:
+        - duration: 120
+          arrivalRate: 2
+          rampTo: 10
+          name: "IaaS Ramp-up"
+        - duration: 360
+          arrivalRate: 10
+          name: "IaaS Sustained load"
+        - duration: 120
+          arrivalRate: 10
+          rampTo: 2
+          name: "IaaS Ramp-down"
+
+    paas:
+      target: "{{ $processEnvironment.PAAS_URL }}"
+      phases:
+        - duration: 120
+          arrivalRate: 2
+          rampTo: 10
+          name: "PaaS Ramp-up"
+        - duration: 360
+          arrivalRate: 10
+          name: "PaaS Sustained load"
+        - duration: 120
+          arrivalRate: 10
+          rampTo: 2
+          name: "PaaS Ramp-down"
+
+# Test scenarios - Define user behavior patterns
+scenarios:
+  # Scenario 1: Homepage visitor - Test basique de la page d'accueil
+  - name: "Homepage Load Test"
+    weight: 100
+    flow:
+      - get:
+          url: "/"
+          expect:
+            - statusCode: 200
+      - think: 2  # User reads homepage for 2 seconds
+
+  # NOTE: Les scénarios suivants sont commentés car ils nécessitent
+  # que l'application Laravel soit configurée avec ces endpoints.
+  # Décommentez-les une fois que votre application est déployée et configurée.
+
+  # # Scenario 2: API endpoint test
+  # - name: "API Health Check"
+  #   weight: 30
+  #   flow:
+  #     - get:
+  #         url: "/api/health"
+  #         expect:
+  #           - statusCode: 200
+  #           - contentType: json
+  #     - think: 1
+
+  # # Scenario 3: Static resource loading
+  # - name: "Static Resources"
+  #   weight: 20
+  #   flow:
+  #     - get:
+  #         url: "/css/app.css"
+  #         expect:
+  #           - statusCode: 200
+  #     - get:
+  #         url: "/js/app.js"
+  #         expect:
+  #           - statusCode: 200
+  #     - think: 1
+
+  # # Scenario 4: POST request simulation
+  # - name: "Form Submission Simulation"
+  #   weight: 10
+  #   flow:
+  #     - post:
+  #         url: "/api/data"
+  #         json:
+  #           userId: "{{ $randomString() }}"
+  #           timestamp: "{{ $timestamp() }}"
+  #           action: "normal-load-test"
+  #         expect:
+  #           - statusCode: [200, 201]
+  #     - think: 3

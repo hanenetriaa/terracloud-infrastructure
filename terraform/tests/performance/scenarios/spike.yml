@@ -1,0 +1,203 @@
+config:
+  # Target configuration - will be overridden by environment-specific configs
+  target: "{{ $processEnvironment.TARGET_URL }}"
+
+  # Test phases for spike test - sudden dramatic increases in load
+  phases:
+    # Baseline phase: normal low load
+    - duration: 120
+      arrivalRate: 5
+      name: "Baseline normal load"
+
+    # SPIKE 1: Sudden increase to high load
+    - duration: 10
+      arrivalRate: 100
+      name: "Spike 1 - Sudden surge"
+
+    # Spike 1 sustained: Maintain spike for observation
+    - duration: 110
+      arrivalRate: 100
+      name: "Spike 1 - Sustained high load"
+
+    # Recovery 1: Drop back to baseline
+    - duration: 10
+      arrivalRate: 5
+      name: "Recovery 1 - Drop to baseline"
+
+    # Recovery 1 observation: Monitor system recovery
+    - duration: 170
+      arrivalRate: 5
+      name: "Recovery 1 - Observation period"
+
+    # SPIKE 2: Second surge (testing repeat behavior)
+    - duration: 10
+      arrivalRate: 150
+      name: "Spike 2 - Larger surge"
+
+    # Spike 2 sustained: Maintain second spike
+    - duration: 110
+      arrivalRate: 150
+      name: "Spike 2 - Sustained higher load"
+
+    # Final recovery: Return to baseline
+    - duration: 10
+      arrivalRate: 5
+      name: "Final recovery - Drop to baseline"
+
+    # Final observation: Monitor complete recovery
+    - duration: 170
+      arrivalRate: 5
+      name: "Final observation period"
+
+  # Spike test thresholds - expect some degradation during spikes
+  ensure:
+    maxErrorRate: 10         # Accept up to 10% errors during spikes
+    p95: 3000                # 95th percentile < 3000ms
+    p99: 6000                # 99th percentile < 6000ms
+
+  # HTTP configuration
+  http:
+    timeout: 30              # Allow longer timeout during spikes
+
+  # Payload configuration
+  payload:
+    path: "../configs/test-data.csv"
+    fields:
+      - "userId"
+      - "action"
+    skipHeader: true
+
+  # Plugin configuration
+  plugins:
+    metrics-by-endpoint:
+      stripQueryString: true
+    expect:
+      outputFormat: "json"
+
+  # Environment-specific configurations
+  environments:
+    iaas:
+      target: "{{ $processEnvironment.IAAS_URL }}"
+      phases:
+        - duration: 120
+          arrivalRate: 5
+          name: "IaaS Baseline"
+        - duration: 10
+          arrivalRate: 100
+          name: "IaaS Spike 1"
+        - duration: 110
+          arrivalRate: 100
+          name: "IaaS Spike 1 sustained"
+        - duration: 10
+          arrivalRate: 5
+          name: "IaaS Recovery 1"
+        - duration: 170
+          arrivalRate: 5
+          name: "IaaS Recovery 1 observation"
+        - duration: 10
+          arrivalRate: 150
+          name: "IaaS Spike 2"
+        - duration: 110
+          arrivalRate: 150
+          name: "IaaS Spike 2 sustained"
+        - duration: 10
+          arrivalRate: 5
+          name: "IaaS Final recovery"
+        - duration: 170
+          arrivalRate: 5
+          name: "IaaS Final observation"
+
+    paas:
+      target: "{{ $processEnvironment.PAAS_URL }}"
+      phases:
+        - duration: 120
+          arrivalRate: 5
+          name: "PaaS Baseline"
+        - duration: 10
+          arrivalRate: 100
+          name: "PaaS Spike 1"
+        - duration: 110
+          arrivalRate: 100
+          name: "PaaS Spike 1 sustained"
+        - duration: 10
+          arrivalRate: 5
+          name: "PaaS Recovery 1"
+        - duration: 170
+          arrivalRate: 5
+          name: "PaaS Recovery 1 observation"
+        - duration: 10
+          arrivalRate: 150
+          name: "PaaS Spike 2"
+        - duration: 110
+          arrivalRate: 150
+          name: "PaaS Spike 2 sustained"
+        - duration: 10
+          arrivalRate: 5
+          name: "PaaS Final recovery"
+        - duration: 170
+          arrivalRate: 5
+          name: "PaaS Final observation"
+
+# Test scenarios - Varied patterns to simulate real traffic spike
+scenarios:
+  # Scenario 1: Homepage rush (simulating viral content or marketing campaign)
+  - name: "Homepage Spike Traffic"
+    weight: 100
+    flow:
+      - get:
+          url: "/"
+          expect:
+            - statusCode: [200, 429, 500, 502, 503, 504]  # Accept rate limiting and errors
+      - think: 0.5  # Very short think time during spike
+
+  # NOTE: Les scénarios suivants sont commentés car ils nécessitent
+  # que l'application Laravel soit configurée avec ces endpoints.
+  # Décommentez-les une fois que votre application est déployée et configurée.
+
+  # # Scenario 2: API endpoint burst
+  # - name: "API Burst Traffic"
+  #   weight: 25
+  #   flow:
+  #     - get:
+  #         url: "/api/health"
+  #         expect:
+  #           - statusCode: [200, 429, 500, 502, 503, 504]
+  #     - get:
+  #         url: "/api/status"
+  #         expect:
+  #           - statusCode: [200, 404, 429, 500, 502, 503, 504]
+  #     - think: 0.3
+
+  # # Scenario 3: Resource loading during spike
+  # - name: "Resource Loading Spike"
+  #   weight: 20
+  #   flow:
+  #     - get:
+  #         url: "/"
+  #         expect:
+  #           - statusCode: [200, 429, 500, 502, 503, 504]
+  #     - loop:
+  #         - get:
+  #             url: "/css/app.css"
+  #             expect:
+  #               - statusCode: [200, 404, 429, 500, 502, 503, 504]
+  #         - get:
+  #             url: "/js/app.js"
+  #             expect:
+  #               - statusCode: [200, 404, 429, 500, 502, 503, 504]
+  #       count: 1
+  #     - think: 0.2
+
+  # # Scenario 4: POST requests during spike
+  # - name: "Spike Form Submissions"
+  #   weight: 15
+  #   flow:
+  #     - post:
+  #         url: "/api/data"
+  #         json:
+  #           userId: "{{ $randomString() }}"
+  #           timestamp: "{{ $timestamp() }}"
+  #           action: "spike-test"
+  #         expect:
+  #           - statusCode: [200, 201, 400, 429, 500, 502, 503, 504]
+  #     - think: 0.5

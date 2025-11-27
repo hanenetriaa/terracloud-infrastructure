@@ -1,0 +1,160 @@
+config:
+  # Target configuration - will be overridden by environment-specific configs
+  target: "{{ $processEnvironment.TARGET_URL }}"
+
+  # Test phases for stress test scenario - pushing system beyond normal capacity
+  phases:
+    # Warm-up phase: gradually increase to normal load
+    - duration: 60
+      arrivalRate: 5
+      rampTo: 15
+      name: "Warm-up phase"
+
+    # Ramp-up to stress: continue increasing load
+    - duration: 120
+      arrivalRate: 15
+      rampTo: 50
+      name: "Stress ramp-up phase"
+
+    # Maximum stress: maintain high load
+    - duration: 540
+      arrivalRate: 50
+      name: "Maximum stress phase"
+
+    # Recovery phase: gradually decrease load
+    - duration: 180
+      arrivalRate: 50
+      rampTo: 5
+      name: "Recovery phase"
+
+  # More lenient thresholds for stress testing
+  ensure:
+    maxErrorRate: 5          # Accept up to 5% errors during stress
+    p95: 2000                # 95th percentile < 2000ms
+    p99: 5000                # 99th percentile < 5000ms
+
+  # HTTP configuration with longer timeout for stressed system
+  http:
+    timeout: 30              # Longer timeout for stressed system
+
+  # Payload configuration
+  payload:
+    path: "../configs/test-data.csv"
+    fields:
+      - "userId"
+      - "action"
+    skipHeader: true
+
+  # Plugin configuration
+  plugins:
+    metrics-by-endpoint:
+      stripQueryString: true
+    # Expect high errors, so we want detailed error tracking
+    expect:
+      outputFormat: "json"
+
+  # Environment-specific configurations
+  environments:
+    iaas:
+      target: "{{ $processEnvironment.IAAS_URL }}"
+      phases:
+        - duration: 60
+          arrivalRate: 5
+          rampTo: 15
+          name: "IaaS Warm-up"
+        - duration: 120
+          arrivalRate: 15
+          rampTo: 50
+          name: "IaaS Stress ramp-up"
+        - duration: 540
+          arrivalRate: 50
+          name: "IaaS Maximum stress"
+        - duration: 180
+          arrivalRate: 50
+          rampTo: 5
+          name: "IaaS Recovery"
+
+    paas:
+      target: "{{ $processEnvironment.PAAS_URL }}"
+      phases:
+        - duration: 60
+          arrivalRate: 5
+          rampTo: 15
+          name: "PaaS Warm-up"
+        - duration: 120
+          arrivalRate: 15
+          rampTo: 50
+          name: "PaaS Stress ramp-up"
+        - duration: 540
+          arrivalRate: 50
+          name: "PaaS Maximum stress"
+        - duration: 180
+          arrivalRate: 50
+          rampTo: 5
+          name: "PaaS Recovery"
+
+# Test scenarios - Heavier load patterns
+scenarios:
+  # Scenario 1: Heavy homepage traffic
+  - name: "Homepage Heavy Load"
+    weight: 100
+    flow:
+      - get:
+          url: "/"
+          expect:
+            - statusCode: [200, 500, 502, 503, 504]  # Accept server errors during stress
+      - think: 1  # Shorter think time for more aggressive load
+
+  # NOTE: Les scénarios suivants sont commentés car ils nécessitent
+  # que l'application Laravel soit configurée avec ces endpoints.
+  # Décommentez-les une fois que votre application est déployée et configurée.
+
+  # # Scenario 2: Rapid API calls
+  # - name: "API Stress Test"
+  #   weight: 30
+  #   flow:
+  #     - loop:
+  #         - get:
+  #             url: "/api/health"
+  #             expect:
+  #               - statusCode: [200, 500, 502, 503, 504]
+  #         - get:
+  #             url: "/api/status"
+  #             expect:
+  #               - statusCode: [200, 404, 500, 502, 503, 504]
+  #       count: 3
+  #     - think: 0.5
+
+  # # Scenario 3: Resource intensive operations
+  # - name: "Resource Intensive Operations"
+  #   weight: 20
+  #   flow:
+  #     - get:
+  #         url: "/"
+  #         expect:
+  #           - statusCode: [200, 500, 502, 503, 504]
+  #     - get:
+  #         url: "/css/app.css"
+  #         expect:
+  #           - statusCode: [200, 404, 500, 502, 503, 504]
+  #     - get:
+  #         url: "/js/app.js"
+  #         expect:
+  #           - statusCode: [200, 404, 500, 502, 503, 504]
+  #     - think: 0.5
+
+  # # Scenario 4: High POST request volume
+  # - name: "Heavy POST Requests"
+  #   weight: 15
+  #   flow:
+  #     - loop:
+  #         - post:
+  #             url: "/api/data"
+  #             json:
+  #               userId: "{{ $randomString() }}"
+  #               timestamp: "{{ $timestamp() }}"
+  #               action: "stress-test"
+  #             expect:
+  #               - statusCode: [200, 201, 400, 500, 502, 503, 504]
+  #         - think: 0.3
+  #       count: 2

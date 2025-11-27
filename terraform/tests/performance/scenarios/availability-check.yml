@@ -1,0 +1,40 @@
+config:
+  # Smoke test - Vérifie simplement si le service est disponible
+  target: "{{ $processEnvironment.TARGET_URL }}"
+
+  # Test phases - court et simple
+  phases:
+    - duration: 30
+      arrivalRate: 1
+      name: "Availability Check"
+
+  # HTTP configuration
+  http:
+    timeout: 30  # Timeout plus long pour les services qui démarrent
+
+  # Environnements
+  environments:
+    iaas:
+      target: "{{ $processEnvironment.IAAS_URL }}"
+      phases:
+        - duration: 30
+          arrivalRate: 1
+          name: "IaaS Availability Check"
+
+    paas:
+      target: "{{ $processEnvironment.PAAS_URL }}"
+      phases:
+        - duration: 30
+          arrivalRate: 1
+          name: "PaaS Availability Check"
+
+# Scénario simple - teste juste la page d'accueil
+scenarios:
+  - name: "Basic Connectivity Test"
+    weight: 100
+    flow:
+      - get:
+          url: "/"
+          # Accepte n'importe quel code de statut HTTP valide
+          # (200, 403, 404, etc. - tant que le serveur répond)
+      - think: 1
